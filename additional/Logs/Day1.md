@@ -1,10 +1,11 @@
 # Day 1
 Since the task was given to me at around 3pm, and that my half day shift started at 3pm, I only seriously started on the assessment at around 8pm. 
 The Task focuses on 3 main points: 
+<ul>
 <li> Design the pages, components, routes and their relations</li>
 <li> Culture myself about the asked technologies and what can be added to improve the project without loosing a lot of  time</li>
 <li> Implementing the actual solution </li>
-
+</ul>
 <br>
 
 ### Planning:

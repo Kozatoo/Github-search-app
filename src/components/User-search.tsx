@@ -20,7 +20,7 @@ const Form = styled.form`
   border-radius: 1rem;
 `;
 const Input = styled.input`
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1;
   background-color: transparent;
   width: 100%;
