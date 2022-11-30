@@ -1,11 +1,11 @@
 import React from "react";
-import { Info, User, Search, Header } from '../components';
+import { Info, User, Header,Main } from '../components';
 import styled from "styled-components";
 const Home = () => {
     return (
       <Wrapper>
         <Header></Header>
-        <Search></Search>
+        <Main></Main>
         <Info></Info>
         <User></User>
       </Wrapper>
@@ -13,7 +13,7 @@ const Home = () => {
   };
   
 const Wrapper = styled.div`
-  min-height: 100vw;
+  min-height: 100vh;
   background-color: #F8F8F8;
 `
   export default Home;

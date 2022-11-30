@@ -1,5 +1,5 @@
 import React from "react";
-import Search from "./User-search";
+import Search from "./UserSearch";
 import styled from "styled-components";
 
 const Header = () =>{
