@@ -12,7 +12,7 @@ I then started working on the header by implementing a user search bar (an addit
 ## More planning 
 After finishing the header and mainly the user search bar, I've decided to plan my next steps following this order:
 1. Build the main app interface / the *MVP*
-2. Adding the main routes *(like redirecting to error page when inserting the wrong url...)* 
+2. Adding the main optional routes *(like redirecting to error page when inserting the wrong url...)* 
 3. Integrate the app in **StoryBook**
 4. Start writing tests about the actual components
 5. Start fetching real data from github (We'll see if it's with the graphQL or rest APi regarding the advancement) 
