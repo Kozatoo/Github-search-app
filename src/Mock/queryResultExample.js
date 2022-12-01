@@ -1,4 +1,4 @@
-{
+export const mockData= {
   "data": {
     "search": {
       "repositoryCount": 42038,

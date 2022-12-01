@@ -1,13 +1,17 @@
 
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
 import RepositoryList from './RepositoryList';
+import NoRepository from './NoRepositories';
+import Tips from './Tips';
+import {mockData} from '../../Mock/queryResultExample';
 const Main = () => {
+  const [search, setSearch] = useState(()=>mockData.data.search);
     return (
       <Wrapper>
         <SearchBar></SearchBar>
-        <RepositoryList></RepositoryList>
+        {search ? (search.repositoryCount>0 ? <RepositoryList repositories= {search.edges}></RepositoryList> : <NoRepository></NoRepository>) : <Tips></Tips> }
       </Wrapper>
     );
   };

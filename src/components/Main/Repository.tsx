@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-const Repository = () => {
+import { IRepository } from '../../models/IRepository';
+const Repository = ({repository} : {repository : IRepository}) => {
   return  <Wrapper>
             <MainInformation>
-                <h1><a href="#">UserName/RepoName</a></h1>
-                <p>this is some cool project made by the best dev in the world</p>    
+                <h1><a href={repository.url}>{repository.name}</a></h1>
+                <p>{repository.description}</p>    
             </MainInformation>
             <DetailedInformation>
-                <h1 className="stars">30 <img src="/star.svg"></img></h1>
-                <div className="forks">48 <img src="/fork.svg"></img></div>
-                <div className="main-language">Typescript</div>
-                <div className="lastUpdate">Updated 48s ago</div>
+                <h1 className="stars">{repository.stargazers.totalCount} <img src="/star.svg"></img></h1>
+                <div className="forks">{repository.forkCount} <img src="/fork.svg"></img></div>
+                <div className="main-language">{repository.primaryLanguage.name}</div>
+                <div className="lastUpdate">{repository.updatedAt}</div>
             </DetailedInformation>
-          </Wrapper>;
+          </Wrapper>; 
 };
 const Wrapper = styled.div `
     min-height:100px;

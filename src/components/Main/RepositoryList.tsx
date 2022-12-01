@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Repository from './Repository';
-
-const RepositoryList = () => {
+import {Props} from '../../models/repositories'
+import { IRepository, RepositoryWrapper } from 'src/models/IRepository';
+const RepositoryList : React.FC<Props>= ({repositories}) => {
   return  <Wrapper>
-            <Repository></Repository>
-            <Repository></Repository>
-            <Repository></Repository>
+            {repositories.map((element: RepositoryWrapper, index: number)=> <Repository repository={element.node} key={index}  ></Repository>
+            )}
           </Wrapper>;
 };
 const Wrapper = styled.div `
