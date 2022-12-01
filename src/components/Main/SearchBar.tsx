@@ -15,10 +15,8 @@ const Form = styled.form`
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  width: 45%;
   height: 0.7rem;
   padding: 2rem;
-  margin: auto;
   border-radius: 1rem;
   background-color: white;
 `;
