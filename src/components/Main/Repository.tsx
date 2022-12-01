@@ -8,7 +8,7 @@ const Repository = () => {
             </MainInformation>
             <DetailedInformation>
                 <h1 className="stars">30 <img src="/star.svg"></img></h1>
-                <div className="forks">48<img src="/fork.svg"></img></div>
+                <div className="forks">48 <img src="/fork.svg"></img></div>
                 <div className="main-language">Typescript</div>
                 <div className="lastUpdate">Updated 48s ago</div>
             </DetailedInformation>
@@ -33,5 +33,16 @@ const MainInformation = styled.div`
 const DetailedInformation = styled.div `
     width: 25%;
     text-align: right;
+    .stars>img{
+        width:1.5rem;
+    }
+
+    .forks{
+        font-size:20px
+    }
+    .forks>img{
+        margin-top:auto;
+        width:0.7rem;
+    }
 `
 export default Repository;
