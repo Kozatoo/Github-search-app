@@ -2,7 +2,6 @@ import { GraphQLClient, gql } from "graphql-request";
 import { IRepository,RepositoryResponse } from "../models/IRepository";
 export async function getRepos(query: string, itemsCount: number): Promise<RepositoryResponse> {
   const endpoint = "https://api.github.com/graphql";
-console.log(import.meta.env.VITE_GITHUB_ACCESS_TOKEN);
   const graphQLClient = new GraphQLClient(endpoint,{method : 'POST'});
   graphQLClient.setHeader('authorization', 'Bearer '.concat(import.meta.env.VITE_GITHUB_ACCESS_TOKEN));
 
@@ -49,13 +48,13 @@ try{
     number_of_repos: itemsCount,
   }
   const data = await graphQLClient.request(GET_REPO, variables);
-  console.log(data)
   return data as RepositoryResponse;
 }
 catch(e)
 {
   console.log(e)  
-  process.exit(1)
+  throw(e);
 }
+
 
 }
