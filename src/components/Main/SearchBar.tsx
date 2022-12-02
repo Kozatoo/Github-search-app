@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-const SearchBar = ({ getData } : { getData: (value: string) => void } ) => {
 
+/**
+ * the main search bar component
+ * @param getData the function to be called when inserting the data 
+ * @returns 
+ */
+const SearchBar = ({ getData } : { getData: (value: string) => void } ) => {
   const [searchText,setSearchText] = useState<string>("");
   function searchRepos() {
-
     if(!searchText || !searchText.trim())
         return;
 
      getData(searchText);   
   }
+
+  /**
+   * this function is used to handle the form submit 
+   * @param e - event passed by triggers
+   */
   function handleSubmit (e :  React.FormEvent<HTMLFormElement> |  React.MouseEvent<HTMLButtonElement, MouseEvent>){
     e.preventDefault();
     searchRepos();

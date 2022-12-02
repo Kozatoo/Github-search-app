@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IRepository } from '../../models/IRepository';
+/**
+ * The name speaks for itself
+ * @param repository it's an object containing every details passed from repositories list 
+ * @returns a fully rendered repository
+ */
 const Repository = ({repository} : {repository : IRepository}) => {
   return  <Wrapper>
             <MainInformation>

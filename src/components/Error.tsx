@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom"
 const Error = () =>{
-    
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path = `/`; 
-    navigate(path);
-  }
+    let navigate = useNavigate(); 
+    /**
+     * A function used to change the root page to return to the home page
+     */
+    const routeChange = () =>{ 
+        let path = `/`; 
+        navigate(path);
+    }
     return <Wrapper>
         <h1>Sorry, the requested page is no where to be found!</h1>
         <p className="statusCode">404</p>

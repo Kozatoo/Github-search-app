@@ -9,11 +9,18 @@ import { RepositoriesData } from "../../models/IRepository";
 import { getRepos } from "../../queries/GetRepositories";
 import NoRepository from "./NoRepositories";
 
+/**
+ * This component is responsible for rendering the main page 
+ * @returns The whole main page
+ */
 const Main = () => {
   const [repositoryList, setRepositoryList] = useState<RepositoriesData | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
-
+  /**
+   * this function is used to make the api call and change the components based on its response
+   * @param searchText - the text written in the search bar to be searched
+   */
   async function getData(searchText: string): Promise<void> {
     try {
       setIsLoading(true);
