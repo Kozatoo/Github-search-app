@@ -1,4 +1,4 @@
-import React , { useEffect, useState } from "react";
+import React , { useState } from "react";
 import styled from "styled-components";
 import SearchBar from "./SearchBar";
 import RepositoryList from "./RepositoryList";
@@ -6,7 +6,6 @@ import Loading from "./Loading";
 import ErrorMessage from "./ErrorMessage";
 import Tips from "./Tips";
 import { RepositoriesData } from "../../models/IRepository";
-import { mockData } from "../../Mock/queryResultExample";
 import { getRepos } from "../../queries/GetRepositories";
 import NoRepository from "./NoRepositories";
 

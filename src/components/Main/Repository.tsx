@@ -8,10 +8,10 @@ const Repository = ({repository} : {repository : IRepository}) => {
                 <p>{repository.description}</p>    
             </MainInformation>
             <DetailedInformation>
-                <h1 className="stars">{repository.stargazers.totalCount} <img src="/star.svg"></img></h1>
-                <div className="forks">{repository.forkCount} <img src="/fork.svg"></img></div>
-                <div className="main-language">{repository.primaryLanguage.name}</div>
-                <div className="lastUpdate">{repository.updatedAt}</div>
+                <h1 className="stars">{repository?.stargazers?.totalCount} <img src="/star.svg"></img></h1>
+                <div className="forks">{repository?.forkCount} <img src="/fork.svg"></img></div>
+                <div className="main-language" color="#f1F1F1" >{repository?.primaryLanguage?.name}</div>
+                <div className="lastUpdate">{repository?.updatedAt}</div>
             </DetailedInformation>
           </Wrapper>; 
 };
@@ -31,13 +31,15 @@ const MainInformation = styled.div`
     }
 
 `
-const DetailedInformation = styled.div `
+const DetailedInformation = styled.div`
     width: 25%;
     text-align: right;
     .stars>img{
         width:1.5rem;
     }
-
+    .main-language{
+        color: ${props => props.color ? props.color : "black"};
+    }
     .forks{
         font-size:20px
     }

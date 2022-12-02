@@ -10,14 +10,14 @@ const SearchBar = ({ getData } : { getData: (value: string) => void } ) => {
 
      getData(searchText);   
   }
-  function handleSubmit (e){
+  function handleSubmit (e :  React.FormEvent<HTMLFormElement> |  React.MouseEvent<HTMLButtonElement, MouseEvent>){
     e.preventDefault();
     searchRepos();
   }
-  return  <Form onSubmit={handleSubmit}>
+  return  <Form onSubmit={(e)=>handleSubmit(e)}>
             <Icon> <Img src="/search-icon.svg" alt="" /> </Icon> 
             <Input placeholder="Search Github repositories" value ={searchText} onChange={(e)=>setSearchText(e.target.value)}></Input>
-            <Button onClick={handleSubmit}>Search</Button>
+            <Button onClick={(e)=>handleSubmit(e)}>Search</Button>
           </Form>;
 };
 

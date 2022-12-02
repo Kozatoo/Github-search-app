@@ -25,6 +25,7 @@ console.log(import.meta.env.VITE_GITHUB_ACCESS_TOKEN);
               }
               primaryLanguage {
                 name
+                color
               }
               languages(first: 3) {
                 nodes {

@@ -17,6 +17,7 @@
     "apollo-client": "^2.6.10",
     "apollo-link-error": "^1.1.13",
     "apollo-link-http": "^1.5.17",
+    "eslint-config-react-app": "^7.0.1",
     "graphql": "^15.8.0",
     "graphql-request": "^5.0.0",
     "react": "^18.2.0",
@@ -34,12 +35,13 @@
     "build": "eslint src && tsc && vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "preview": "vite preview",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
-      "react-dotenv && react-app",
+      "react-app",
       "react-app/jest"
     ],
     "overrides": [

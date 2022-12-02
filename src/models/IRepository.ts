@@ -1,4 +1,3 @@
-import Repository from '../components/Main/Repository';
 export interface IRepository {
     nameWithOwner: string;
     url: string;
@@ -7,7 +6,8 @@ export interface IRepository {
     description: string;
     primaryLanguage:{
         name : string;
-    } 
+        color: string;
+    }   
     stargazers :{
         totalCount: number;
     }
