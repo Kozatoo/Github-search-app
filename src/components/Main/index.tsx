@@ -2,12 +2,10 @@ import React , { useState } from "react";
 import styled from "styled-components";
 import SearchBar from "./SearchBar";
 import RepositoryList from "./RepositoryList";
-import Loading from "./Loading";
-import ErrorMessage from "./ErrorMessage";
+import Warning from "./Warning";
 import Tips from "./Tips";
 import { RepositoriesData } from "../../models/IRepository";
 import { getRepos } from "../../queries/GetRepositories";
-import NoRepository from "./NoRepositories";
 
 /**
  * This component is responsible for rendering the main page 
@@ -44,12 +42,12 @@ const Main = () => {
         {!repositoryList ? 
           <Tips></Tips>:
           (isLoading ? 
-            <Loading></Loading>:
+            <Warning message="Loading ..."></Warning>:
             (errorMessage?
-              <ErrorMessage></ErrorMessage>:
+              <Warning message="There was a problem, please retry later!"></Warning>:
               (repositoryList.repositoryCount>0?
                 <RepositoryList repositories={repositoryList}></RepositoryList> :
-                <NoRepository></NoRepository>  
+                <Warning message="No repositories were found"></Warning>  
                 )
               )
           )
