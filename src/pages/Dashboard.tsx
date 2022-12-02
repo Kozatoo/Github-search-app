@@ -3,12 +3,12 @@ import { Info, User, Search } from '../components';
 
 const Dashboard = () => {
     return (
-      <main>
+      <div>
         <h1> Dashboard page</h1>
         <Search></Search>
         <Info></Info>
         <User></User>
-      </main>
+      </div>
     );
   };
   

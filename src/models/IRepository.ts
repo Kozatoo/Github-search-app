@@ -1,5 +1,6 @@
+import Repository from '../components/Main/Repository';
 export interface IRepository {
-    name: string;
+    nameWithOwner: string;
     url: string;
     forkCount: number;
     updatedAt: string;
@@ -13,5 +14,13 @@ export interface IRepository {
 };
 
 export interface RepositoryWrapper{
-    node : IRepository
+    node : IRepository;
+}
+export interface RepositoriesData {
+        edges : Array<RepositoryWrapper>;
+        repositoryCount: number;
+}
+export interface RepositoryResponse{
+    search:  RepositoriesData;
+    
 }

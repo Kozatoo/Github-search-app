@@ -4,7 +4,7 @@ import { IRepository } from '../../models/IRepository';
 const Repository = ({repository} : {repository : IRepository}) => {
   return  <Wrapper>
             <MainInformation>
-                <h1><a href={repository.url}>{repository.name}</a></h1>
+                <h1><a href={repository.url}>{repository.nameWithOwner}</a></h1>
                 <p>{repository.description}</p>    
             </MainInformation>
             <DetailedInformation>

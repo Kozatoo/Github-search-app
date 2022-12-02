@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Repository from './Repository';
-import {Props} from '../../models/repositories'
-import { IRepository, RepositoryWrapper } from 'src/models/IRepository';
-const RepositoryList : React.FC<Props>= ({repositories}) => {
+import { RepositoriesData, RepositoryWrapper } from 'src/models/IRepository';
+const RepositoryList = ({repositories} :{ repositories : RepositoriesData | null}) => {
   return  <Wrapper>
-            {repositories.map((element: RepositoryWrapper, index: number)=> <Repository repository={element.node} key={index}  ></Repository>
+            {repositories?.edges.map((element: RepositoryWrapper, index: number)=> <Repository repository={element.node} key={index}  ></Repository>
             )}
           </Wrapper>;
 };

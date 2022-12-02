@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-const SearchBar = () => {
-  return  <Form>
+const SearchBar = ({ getData } : { getData: (value: string) => void } ) => {
+
+  const [searchText,setSearchText] = useState<string>("");
+  function searchRepos() {
+
+    if(!searchText || !searchText.trim())
+        return;
+
+     getData(searchText);   
+  }
+  function handleSubmit (e){
+    e.preventDefault();
+    searchRepos();
+  }
+  return  <Form onSubmit={handleSubmit}>
             <Icon> <Img src="/search-icon.svg" alt="" /> </Icon> 
-            <Input placeholder="Search Github repositories"></Input>
-            <Button>Search</Button>
-            
+            <Input placeholder="Search Github repositories" value ={searchText} onChange={(e)=>setSearchText(e.target.value)}></Input>
+            <Button onClick={handleSubmit}>Search</Button>
           </Form>;
 };
 
@@ -49,4 +61,5 @@ const Icon = styled.button`
   border: none;
   outline: none;
 `
+
 export default SearchBar;
