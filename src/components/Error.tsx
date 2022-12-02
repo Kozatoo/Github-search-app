@@ -1,16 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useNavigate } from "react-router-dom"
 const Error = () =>{
+    
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/`; 
+    navigate(path);
+  }
     return <Wrapper>
-        <h1>Sorry, the requested page is not found!</h1>
+        <h1>Sorry, the requested page is no where to be found!</h1>
         <p className="statusCode">404</p>
-        <HomeButton><button>Go back home</button></HomeButton>
+        <HomeButton><button  onClick={routeChange}>Go back home</button></HomeButton>
     </Wrapper>
 }
 const Wrapper = styled.section`
     width:100%;
-    height: 120px;  
+    height: auto;  
     margin-top:50px;
     text-align: center;
     h1{

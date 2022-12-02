@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {  Login, Home, ErrorPage } from './pages';
+import {  Home, ErrorPage } from './pages';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -9,7 +9,6 @@ function App() {
     <BrowserRouter>
       <Routes>
           <Route path='/' element={<Home></Home>}></Route>
-          <Route path='/login' element={<Login></Login>}></Route>
           <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
     </BrowserRouter>
