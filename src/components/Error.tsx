@@ -20,6 +20,7 @@ const Wrapper = styled.section`
     width:100%;
     height: auto;  
     margin-top:50px;
+    margin-bottom: 50px;
     text-align: center;
     h1{
         margin: auto 1rem;

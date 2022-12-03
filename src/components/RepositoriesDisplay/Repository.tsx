@@ -34,6 +34,9 @@ const MainInformation = styled.div`
         color: black;
         text-decoration: none;
     }
+    a:hover{
+        cursor: pointer;
+    }
 
 `
 const DetailedInformation = styled.div`
