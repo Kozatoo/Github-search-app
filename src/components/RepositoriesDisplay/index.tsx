@@ -39,8 +39,7 @@ const RepositoriesDisplay = () => {
   return (
     <Wrapper>
       <SearchBar getData={getData}></SearchBar>
-        {!repositoryList ? 
-          <Tips></Tips>:
+        {repositoryList &&  !isLoading ? 
           (isLoading ? 
             <Warning message="Loading ..."></Warning>:
             (errorMessage?
@@ -50,7 +49,11 @@ const RepositoriesDisplay = () => {
                 <Warning message="No repositories were found"></Warning>  
                 )
               )
-          )
+          ):
+            (isLoading ? 
+              <Warning message="Loading ..."></Warning>:
+              <Tips></Tips>
+            )
           }
     </Wrapper>
   );
