@@ -1,10 +1,16 @@
 import React from "react";
 import Search from "./UserSearch";
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () =>{
+    let navigate = useNavigate();
+    const goHome = ()=>{
+        let path = `/`; 
+        navigate(path);
+    }
     return <Wrapper>
-        <h1>Github Repos Search</h1>
+        <h1 onClick={goHome}>Github Repos Search</h1>
         <Search></Search>
     </Wrapper>
 }

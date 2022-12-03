@@ -2,7 +2,7 @@ import React , { useState } from "react";
 import styled from "styled-components";
 import SearchBar from "./SearchBar";
 import RepositoryList from "./RepositoryList";
-import Warning from "./Warning";
+import Warning from "./../Warning";
 import Tips from "./Tips";
 import { RepositoriesData } from "../../models/IRepository";
 import { getRepos } from "../../queries/GetRepositories";
@@ -11,7 +11,7 @@ import { getRepos } from "../../queries/GetRepositories";
  * This component is responsible for rendering the main page 
  * @returns The whole main page
  */
-const Main = () => {
+const RepositoriesDisplay = () => {
   const [repositoryList, setRepositoryList] = useState<RepositoriesData | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
@@ -60,4 +60,4 @@ const Wrapper = styled.div`
   margin-top: 20px;
   width: 45%;
 `;
-export default Main;
+export default RepositoriesDisplay;

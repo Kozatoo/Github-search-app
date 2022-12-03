@@ -16,7 +16,7 @@ const Repository = ({repository} : {repository : IRepository}) => {
                 <h1 className="stars">{repository?.stargazers?.totalCount} <img src="/star.svg"></img></h1>
                 <div className="forks">{repository?.forkCount} <img src="/fork.svg"></img></div>
                 <div className="main-language" color="#f1F1F1" >{repository?.primaryLanguage?.name}</div>
-                <div className="lastUpdate">{repository?.updatedAt}</div>
+                <div className="lastUpdate">{ repository?.updatedAt}</div>
             </DetailedInformation>
           </Wrapper>; 
 };

@@ -8,6 +8,7 @@ const Warning= ({message}:{message: string }) => {
   )
 };
 const WarningDiv = styled.div`
+margin-top: 50px;
     h1{
     margin: auto 1rem;
     font-size:40px;
