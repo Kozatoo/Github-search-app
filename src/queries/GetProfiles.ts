@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
-import { gqlDataFetcher } from "./GithubApiProvider";
-import { RepositoryResponse } from "../models/IRepository";
+import { GraphQLClient, gql } from "graphql-request";
+import { IRepository,RepositoryResponse } from "../models/IRepository";
 /**
  * 
  * @param query - The inserted search text
@@ -10,6 +9,13 @@ import { RepositoryResponse } from "../models/IRepository";
  * @returns - A list of Repositories in the RepositoryResponse format
  */
 export async function getRepos(query: string, itemsCount: number): Promise<RepositoryResponse> {
+  /**
+   * Linking the 
+   */
+  const endpoint = "https://api.github.com/graphql";
+  const graphQLClient = new GraphQLClient(endpoint,{method : 'POST'});
+  graphQLClient.setHeader('authorization', 'Bearer '.concat(import.meta.env.VITE_GITHUB_ACCESS_TOKEN));
+
   const GET_REPO = gql`
     query GetRepos($queryString: String!, $number_of_repos: Int!) {
       search(query: $queryString, type: REPOSITORY, first: $number_of_repos) {
@@ -52,7 +58,7 @@ try{
     queryString: query,
     number_of_repos: itemsCount,
   }
-  const data = await gqlDataFetcher(GET_REPO, variables);
+  const data = await graphQLClient.request(GET_REPO, variables);
   return data as RepositoryResponse;
 }
 catch(e)
