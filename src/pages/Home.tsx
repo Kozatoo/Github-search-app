@@ -1,11 +1,11 @@
 import React from "react";
-import { Header,Main, Footer } from '../components';
+import { Header, RepositoriesDisplay, Footer } from '../components';
 import styled from "styled-components";
 const Home = () => {
     return (
       <Wrapper>
         <Header></Header>
-        <Main></Main>
+        <RepositoriesDisplay></RepositoriesDisplay>
         <Footer></Footer>
       </Wrapper>
     );
