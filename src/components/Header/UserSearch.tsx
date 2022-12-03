@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
-const UserSearch = () => {
-  return  <Form>
-            <Icon> <Img src="/search-icon.svg" alt="" /> </Icon> 
-            <Input placeholder="Search Users"></Input>
+const UserSearch = ({searchUsers} : {searchUsers : (query : string)=>void}) => {
+  
+  const [searchText,setSearchText] = useState<string>("");
+  const goToUsersPage = (e :  React.FormEvent<HTMLFormElement> |  React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
+    e.preventDefault();
+    searchUsers(searchText);    
+  }
+
+  return  <Form onSubmit={(e)=>goToUsersPage(e)}>
+            <Icon onClick={(e)=>goToUsersPage(e)}> <Img src="/search-icon.svg" alt="" /> </Icon> 
+            <Input placeholder="Search Users" value ={searchText} onChange={(e)=>setSearchText(e.target.value)}></Input>
           </Form>;
 };
 
@@ -38,5 +45,6 @@ const Icon = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
+  cursor:pointer;
 `
 export default UserSearch;

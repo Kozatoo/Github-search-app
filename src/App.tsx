@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {  Home, ErrorPage } from './pages';
+import {  Home, ErrorPage,UsersPage } from './pages';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
           <Route path='/' element={<Home></Home>}></Route>
-          <Route path='/users' element=""></Route>
+          <Route path='/users/:id' element={<UsersPage></UsersPage>}></Route>
           <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
     </BrowserRouter>

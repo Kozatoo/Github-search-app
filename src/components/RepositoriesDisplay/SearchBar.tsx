@@ -59,7 +59,8 @@ const Button = styled.button`
     min-height: 40px;
     min-width:100px;
     font-size: 16px;
-    border-radius: 0.4rem;    
+    border-radius: 0.4rem;  
+    cursor:pointer;  
 `
 const Img = styled.img`
   line-height: 1;
@@ -69,6 +70,7 @@ const Icon = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
+  cursor:pointer;
 `
 
 export default SearchBar;
