@@ -1,11 +1,11 @@
 import React from "react";
-import {  Error, Footer, Header } from '../components';
+import {  UserProfileDisplay, Footer, Header } from '../components';
 import styled from "styled-components";
 const UserProfile = () => {
     return (
       <Wrapper>
         <Header></Header>
-        <Error></Error>
+        <UserProfileDisplay></UserProfileDisplay>
         <Footer></Footer>
       </Wrapper>
     );

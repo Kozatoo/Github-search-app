@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import HomeBtn from "./HomeButton";
 const Error = () =>{
     let navigate = useNavigate(); 
     /**
@@ -13,7 +14,7 @@ const Error = () =>{
     return <Wrapper>
         <h1>Sorry, the requested page is no where to be found!</h1>
         <p className="statusCode">404</p>
-        <HomeButton><button  onClick={routeChange}>Go back home</button></HomeButton>
+        <HomeBtn></HomeBtn>
     </Wrapper>
 }
 const Wrapper = styled.section`
@@ -31,20 +32,6 @@ const Wrapper = styled.section`
         font-size: 200px;
     }
 `
-const HomeButton = styled.div`
-    margin:auto;    
-    display: flex;
-    justify-content:center;
-    button{
-        background-color: #eeeeee;
-        border: none;
-        outline: none;
-        min-height: 50px;
-        min-width:150px;
-        font-size: 16px;
-        border-radius: 0.4rem;    
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
 
-`
+
 export default Error;

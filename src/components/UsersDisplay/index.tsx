@@ -1,17 +1,17 @@
 import React , { useState } from "react";
 import styled from "styled-components";
-import { RepositoriesData } from "../../models/IRepository";
-import { getRepos } from "../../queries/GetRepositories";
-
+import ProfilesList from './ProfileList';
+import { ProfilesData } from 'src/models/IProfile';
+import { getProfiles } from "src/queries/GetProfiles";
 /**
  * This component is responsible for rendering the page listing the users lists 
  * @returns The whole users list page
  */
 const UsersDisplay = () => {
-  
+
     return (
     <Wrapper>
-      <h1>UsersDisplay</h1>
+      <ProfilesList></ProfilesList>
     </Wrapper>
   );
 };

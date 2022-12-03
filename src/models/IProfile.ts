@@ -1,21 +1,24 @@
 interface IProfile {
     /** 
      * This is the main object format we are going to pass from component to another
-     * @param - primaryLanguage means the most used language in the project
-     * @remarks - All other params speak for themselves.
+     * @remarks - All params speak for themselves.
      */
-    nameWithOwner: string;
-    url: string;
-    forkCount: number;
-    updatedAt: string;
-    description: string;
-    primaryLanguage:{
-        name : string;
-        color: string;
-    }   
-    stargazers :{
+    avatarUrl: string;
+    bio: string;
+    name: number;
+    url:string;
+    repositories:{
+        totalCount: number
+    }
+    followers:{
+        totalCount : number;
+    } 
+    following:{
         totalCount: number;
     }
+    starredRepositories:{
+        totalCount:number;
+    }   
 };
 
 interface ProfileWrapper{
@@ -28,7 +31,7 @@ interface ProfileWrapper{
      * This interface represents the basic response containing a list of wrapped profiles and a variable representing the number of edges
      */
         edges : Array<ProfileWrapper>;
-        profileCount: number;
+        userCount: number;
 }
 interface ProfileResponse{
     /**

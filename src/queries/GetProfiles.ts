@@ -1,5 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
-import { IRepository,RepositoryResponse } from "../models/IRepository";
+import { ProfileResponse } from "src/models/IProfile";
+import { gqlDataFetcher } from "./GithubApiProvider";
 /**
  * 
  * @param query - The inserted search text
@@ -8,58 +9,49 @@ import { IRepository,RepositoryResponse } from "../models/IRepository";
  * If the number of queries increases, we might think of refactoring the code in a way where we only create the request and variables and call another function that takes care of the fetch
  * @returns - A list of Repositories in the RepositoryResponse format
  */
-export async function getRepos(query: string, itemsCount: number): Promise<RepositoryResponse> {
+export async function getProfiles(query?: string , itemsCount: number=10): Promise<ProfileResponse> {
   /**
    * Linking the 
    */
-  const endpoint = "https://api.github.com/graphql";
-  const graphQLClient = new GraphQLClient(endpoint,{method : 'POST'});
-  graphQLClient.setHeader('authorization', 'Bearer '.concat(import.meta.env.VITE_GITHUB_ACCESS_TOKEN));
-
-  const GET_REPO = gql`
-    query GetRepos($queryString: String!, $number_of_repos: Int!) {
-      search(query: $queryString, type: REPOSITORY, first: $number_of_repos) {
-        repositoryCount
-        edges {
-          node {
-            ... on Repository {
-              nameWithOwner
-              url
-              description
-              repositoryTopics(first: 3) {
-                nodes {
-                  topic {
-                    name
-                  }
-                }
-              }
-              primaryLanguage {
-                name
-                color
-              }
-              languages(first: 3) {
-                nodes {
-                  name
-                }
-              }
-              forkCount
-              stargazers {
-                totalCount
-              }
-              updatedAt
+  if(!query){
+    query ="";
+  }
+  const GET_PROFILES = gql`
+  query GetProfiles($queryString: String!, $number_of_users: Int!) {
+    search(query: $queryString, type: USER, first: $number_of_users) {
+      userCount
+      edges {
+        node {
+          ... on User {
+            avatarUrl
+            bio
+            name
+            url
+            followers {
+              totalCount
+            }
+            following{
+              totalCount
+            }
+            starredRepositories{
+              totalCount
+            }
+            starredRepositories{
+              totalCount
             }
           }
         }
       }
     }
+  }
   `;
 try{
   const variables = {
     queryString: query,
-    number_of_repos: itemsCount,
+    number_of_users: itemsCount,
   }
-  const data = await graphQLClient.request(GET_REPO, variables);
-  return data as RepositoryResponse;
+  const data = await await gqlDataFetcher(GET_PROFILES, variables)
+  return data as ProfileResponse;
 }
 catch(e)
 {

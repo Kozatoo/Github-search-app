@@ -22,7 +22,7 @@ const RepositoriesDisplay = () => {
   async function getData(searchText: string): Promise<void> {
     try {
       setIsLoading(true);
-      const response = await getRepos(searchText, 10);
+      const response = await getRepos(searchText);
       if (!response){
         setErrorMessage("Error happened here");
       }

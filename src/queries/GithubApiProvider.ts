@@ -9,7 +9,8 @@ const gqlDataFetcher = async (
                             gqlQuery : string  ,
                             variables : { 
                                 queryString: string,
-                                number_of_repos: number
+                                number_of_repos?: number,
+                                number_of_users?:number
                             }
                         ) => 
     {

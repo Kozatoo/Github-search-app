@@ -9,14 +9,14 @@ import { IProfile } from '../../models/IProfile';
 const Profile = ({profile} : {profile : IProfile}) => {
   return  <Wrapper>
             <MainInformation>
-                <h1><a href={profile.url}>{profile.nameWithOwner}</a></h1>
-                <p>{profile.description}</p>    
+                <h1><a href={profile.url}>{profile.name}</a></h1>
+                <p>{profile.bio}</p>    
             </MainInformation>
             <DetailedInformation>
-                <h1 className="stars">{profile?.stargazers?.totalCount} <img src="/star.svg"></img></h1>
-                <div className="forks">{profile?.forkCount} <img src="/fork.svg"></img></div>
-                <div className="main-language" color="#f1F1F1" >{profile?.primaryLanguage?.name}</div>
-                <div className="lastUpdate">{ profile?.updatedAt}</div>
+                <h1 className="stars">{profile?.following?.totalCount} <img src="/star.svg"></img></h1>
+                <div className="forks">{profile?.followers?.totalCount} <img src="/fork.svg"></img></div>
+                <div className="main-language" color="#f1F1F1" >{profile?.starredRepositories?.totalCount}</div>
+                <div className="lastUpdate">{ profile?.repositories?.totalCount}</div>
             </DetailedInformation>
           </Wrapper>; 
 };

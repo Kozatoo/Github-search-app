@@ -1,12 +1,11 @@
-import React, {useState} from "react";
-import {  Error, Footer, Header } from '../components';
+import React from "react";
+import { UsersDisplay , Footer, Header } from '../components';
 import styled from "styled-components";
 const UsersPage = () => {
-  const [params,setParams] = useState();
     return (
       <Wrapper>
         <Header></Header>
-        <h1>searching users</h1>
+        <UsersDisplay></UsersDisplay>
         <Footer></Footer>
       </Wrapper>
     );

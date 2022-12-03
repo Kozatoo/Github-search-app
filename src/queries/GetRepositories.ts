@@ -9,7 +9,7 @@ import { RepositoryResponse } from "../models/IRepository";
  * If the number of queries increases, we might think of refactoring the code in a way where we only create the request and variables and call another function that takes care of the fetch
  * @returns - A list of Repositories in the RepositoryResponse format
  */
-export async function getRepos(query: string, itemsCount: number): Promise<RepositoryResponse> {
+export async function getRepos(query: string, itemsCount: number=10): Promise<RepositoryResponse> {
   const GET_REPO = gql`
     query GetRepos($queryString: String!, $number_of_repos: Int!) {
       search(query: $queryString, type: REPOSITORY, first: $number_of_repos) {
