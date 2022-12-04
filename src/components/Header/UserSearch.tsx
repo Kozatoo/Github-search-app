@@ -5,6 +5,8 @@ const UserSearch = ({searchUsers} : {searchUsers : (query : string)=>void}) => {
   const [searchText,setSearchText] = useState<string>("");
   const goToUsersPage = (e :  React.FormEvent<HTMLFormElement> |  React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
     e.preventDefault();
+    if(!searchText || !searchText.trim())
+      return;
     searchUsers(searchText);    
   }
 
