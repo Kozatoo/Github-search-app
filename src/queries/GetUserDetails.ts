@@ -34,7 +34,7 @@ export async function getUserDetails(login?: string , itemsCount: number=10): Pr
             totalCount
           }
         repositories(
-            orderBy: {field: STARGAZERS, direction: ASC}
+            orderBy: {field: STARGAZERS, direction: DESC}
             last: 100
             privacy: PUBLIC
         ) {
