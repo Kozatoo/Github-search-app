@@ -7,9 +7,9 @@ import { RepositoriesData, RepositoryWrapper } from 'src/models/IRepository';
  * @param repositories - Its the list of repositories passed by the index
  * @returns the repositories' list rendered
  */
-const RepositoryList = ({repositories} :{ repositories : RepositoriesData | null}) => {
+const RepositoryList = ({repositories, filter} :{ repositories : RepositoriesData | null, filter:string}) => {
   return  <Wrapper>
-            {repositories?.edges.map((element: RepositoryWrapper, index: number)=> <Repository repository={element.node} key={index}  ></Repository>
+            {repositories?.edges.filter(element=>filter == "" || element.node?.name?.toLowerCase().includes(filter.trim().toLowerCase())).map((element: RepositoryWrapper, index: number)=> <Repository repository={element.node} key={index}  ></Repository>
             )}
           </Wrapper>;
 };

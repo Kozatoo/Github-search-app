@@ -17,6 +17,7 @@ const UserProfileDisplay = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [userDetails, setUserDetails] = useState< IProfile|null>(null); 
+  const [filterText, setFilterText] = useState<string> ("");
   let {userLogin} = useParams();
   if(!userLogin)
     userLogin="";
@@ -47,7 +48,11 @@ const UserProfileDisplay = () => {
             (
             <>
               <Profile profile={userDetails}></Profile>
-              <RepositoryList repositories={userDetails.repositories}></RepositoryList>
+              <FilterBar>
+              <input placeholder="Find a repository" value ={filterText} onChange={(e)=>setFilterText(e.target.value)}></input>
+
+              </FilterBar>
+              <RepositoryList repositories={userDetails.repositories} filter={filterText}></RepositoryList>
             </>
             )
           )
@@ -60,4 +65,27 @@ const Wrapper = styled.div`
   margin-top: 20px;
   width: 45%;
 `;
+const FilterBar = styled.div`
+ position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  height: 0.7rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: white;
+  input{
+
+    font-size: 22px;
+    line-height: 1;
+    background-color: transparent;
+    width: 100%;
+    margin-left: "1rem";
+    border: none;
+    &:focus{
+      outline: none;
+    }
+  }
+`
 export default UserProfileDisplay;

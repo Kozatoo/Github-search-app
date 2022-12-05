@@ -45,7 +45,7 @@ const RepositoriesDisplay = () => {
             (errorMessage?
               <Warning message="There was a problem, please retry later!"></Warning>:
               (repositoryList.repositoryCount>0?
-                <RepositoryList repositories={repositoryList}></RepositoryList> :
+                <RepositoryList repositories={repositoryList} filter=""></RepositoryList> :
                 <Warning message="No repositories were found"></Warning>  
                 )
               )
