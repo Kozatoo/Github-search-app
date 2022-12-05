@@ -1,17 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IProfile } from '../../models/IProfile';
+import { useNavigate } from 'react-router-dom';
 /**
  * The name speaks for itself
- * @param repository it's an object containing every details passed from repositories list 
- * @returns a fully rendered repository
+ * @param repository it's an object containing every details passed from users List list 
+ * @returns a fully rendered User profile
  */
 const Profile = ({profile} : {profile : IProfile}) => {
+    let navigate = useNavigate();
+    const  getUSerProfile = () => {
+        console.log("test")
+        navigate(`/user/${profile.login}`);
+      }
   return  <Wrapper>
-            <Image src={profile.avatarUrl ?? "https://avatars.githubusercontent.com/u/80064114?v=4"}></Image>
+            <Image src={profile.avatarUrl ?? "https://avatars.githubusercontent.com/u/80064114?v=4"} onClick={getUSerProfile}></Image>
             <UserDetails>
                 <MainDetails>
-                    <h1>{profile.login}</h1>
+                    <h1 onClick={getUSerProfile}>{profile.login}</h1>
                     <h3>{profile.bio}</h3>
                 </MainDetails>
                 <UserStats>
@@ -38,15 +44,6 @@ const Profile = ({profile} : {profile : IProfile}) => {
 
                 </UserStats>
             </UserDetails>
-                {/* <h1><a href={profile.url}>{profile.login}</a></h1>
-                <p>{profile.bio}</p>    
-            </Image>
-            <DetailedInformation>
-                <h1 className="stars">{profile?.following?.totalCount} <img src="/star.svg"></img></h1>
-                <div className="forks">{profile?.followers?.totalCount} <img src="/fork.svg"></img></div>
-                <div className="main-language" color="#f1F1F1" >{profile?.starredRepositories?.totalCount}</div>
-                <div className="lastUpdate">{ profile?.repositories?.repositoryCount}</div>
-            </DetailedInformation> */}
           </Wrapper>; 
 };
 const Wrapper = styled.div `
@@ -63,6 +60,7 @@ const Image = styled.img`
     margin:auto;
     width:30%;
     height: max-content;
+    cursor:pointer;
 `
 const UserDetails = styled.div`
     width:68%;
@@ -75,7 +73,9 @@ const UserDetails = styled.div`
     }
 `
 const MainDetails = styled.div`
-    
+    h1{
+        cursor:pointer;
+    }
 `
 const UserStats = styled.div`
     display:flex;

@@ -1,10 +1,9 @@
 import React from "react";
 import Search from "./UserSearch";
 import styled from "styled-components";
-import { useNavigate, createSearchParams, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () =>{
-    const [sParams,setSParams] = useSearchParams();
     let navigate = useNavigate();
     const goHome = ()=>{
         let path = `/`; 

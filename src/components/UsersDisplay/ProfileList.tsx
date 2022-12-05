@@ -7,9 +7,8 @@ import Warning from '../Warning';
 import Profile from './Profile';
 import HomeBtn from '@components/HomeButton';
 /**
- * This is the main component rendering the list of repositories. It's basically calling the Repository component with different variables to render them and then render the final list 
- * @param repositories - Its the list of repositories passed by the index
- * @returns the repositories' list rendered
+ * This is the main component rendering the list of users. It's basically calling the user component with different variables to render them and then render the final list 
+ * @returns the users' list rendered
  */
 const ProfilesList = () => {
   
