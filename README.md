@@ -10,7 +10,6 @@ You can check the deployed application [here](https://whimsical-begonia-ad4077.n
 
 ## Future Improvements
 
-- Adding a user search functionality in which the user can look through users profiles 
 - Adding a pagination for repositories
 - Implementing tests
 - Isolating the components and integrate them through StoryBook 
