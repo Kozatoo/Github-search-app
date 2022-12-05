@@ -44,7 +44,7 @@ const ProfilesList = () => {
               (errorMessage || !profilesList ?
                 <Warning message="There was a problem, please retry later!"></Warning> :
                 (profilesList.userCount >0 ?
-                  profilesList?.edges.map((element: ProfileWrapper, index: number)=> 
+                  profilesList?.edges.filter(edge => Object.keys(edge.node).length !== 0 ).map((element: ProfileWrapper, index: number)=> 
                   <Profile profile={element.node} key={index}  ></Profile>):
                   (
                     <div>
@@ -62,5 +62,6 @@ const Wrapper = styled.div `
     margin-top: 20px;
     background-color: white;
     border-radius:0 0 1em 1em;
+    margin-bottom: 50px;
 `
 export default ProfilesList;

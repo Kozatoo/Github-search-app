@@ -1,3 +1,4 @@
+import { RepositoryWrapper } from 'src/models/IRepository';
 interface IProfile {
     /** 
      * This is the main object format we are going to pass from component to another
@@ -7,8 +8,10 @@ interface IProfile {
     bio: string;
     name: number;
     url:string;
-    repositories:{
-        totalCount: number
+    login:string;
+    repositories: {
+        totalCount: number;
+        edges: Array<RepositoryWrapper>;
     }
     followers:{
         totalCount : number;

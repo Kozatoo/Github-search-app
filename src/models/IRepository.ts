@@ -5,6 +5,7 @@ interface IRepository {
      * @remarks - All other params speak for themselves.
      */
     nameWithOwner: string;
+    name:string;
     url: string;
     forkCount: number;
     updatedAt: string;

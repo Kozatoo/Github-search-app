@@ -27,6 +27,7 @@ export async function getProfiles(query?: string , itemsCount: number=10): Promi
             bio
             name
             url
+            login
             followers {
               totalCount
             }
@@ -36,7 +37,7 @@ export async function getProfiles(query?: string , itemsCount: number=10): Promi
             starredRepositories{
               totalCount
             }
-            starredRepositories{
+            repositories{
               totalCount
             }
           }

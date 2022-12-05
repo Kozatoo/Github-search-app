@@ -18,5 +18,6 @@ const Wrapper = styled.div `
     margin-top: 20px;
     background-color: white;
     border-radius:0 0 1em 1em;
+    margin-bottom: 50px;
 `
 export default RepositoryList;
