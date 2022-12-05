@@ -44,6 +44,7 @@ export async function getUserDetails(login?: string , itemsCount: number=10): Pr
                 description
                 name
                 nameWithOwner
+                url
                 forkCount
                 primaryLanguage {
                 color

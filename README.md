@@ -5,8 +5,13 @@ Create a one page application that searches Github repositories by repository na
   
 The solution is bundled via [Vite](https://vitejs.dev/) to fasten the building time and enable hot-swap.  
 
-The application allows the user to search for repositories with allowed Github symbols and returns the search results. The user can then access the repository via a link. 
-You can check the deployed application [here](https://whimsical-begonia-ad4077.netlify.app/)  
+The application allows the user to search for repositories with allowed Github symbols and returns the search results. The user can then access the repository via a link.   
+## Demo 
+
+You can check the deployed application [via this link](https://whimsical-begonia-ad4077.netlify.app/) or watch this recorded demo
+![Recorded demo](./additional/Animation.gif)
+
+
 
 ## Future Improvements
 
