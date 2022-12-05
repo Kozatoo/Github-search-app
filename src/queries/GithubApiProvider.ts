@@ -18,8 +18,13 @@ const gqlDataFetcher = async (
         const graphQLClient = new GraphQLClient(endpoint,{method : 'POST'});
         graphQLClient.setHeader('authorization', 'Bearer '.concat(import.meta.env.VITE_GITHUB_ACCESS_TOKEN));
 
-
-        const data = await graphQLClient.request(gqlQuery, variables);
-        return data;
-    }
+        try {
+            const data = await graphQLClient.request(gqlQuery, variables);
+            return data;
+        }
+        catch(e){
+            console.log(e)
+            return;
+        }
+        }
 export { gqlDataFetcher };

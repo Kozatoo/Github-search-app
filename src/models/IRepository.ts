@@ -30,6 +30,7 @@ interface RepositoryWrapper{
      */
         edges : Array<RepositoryWrapper>;
         repositoryCount: number;
+        totalCount : number;
 }
 interface RepositoryResponse{
     /**

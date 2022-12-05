@@ -1,4 +1,4 @@
-import { RepositoryWrapper } from 'src/models/IRepository';
+import { RepositoriesData } from 'src/models/IRepository';
 interface IProfile {
     /** 
      * This is the main object format we are going to pass from component to another
@@ -9,10 +9,7 @@ interface IProfile {
     name: number;
     url:string;
     login:string;
-    repositories: {
-        totalCount: number;
-        edges: Array<RepositoryWrapper>;
-    }
+    repositories: RepositoriesData;
     followers:{
         totalCount : number;
     } 
@@ -23,6 +20,12 @@ interface IProfile {
         totalCount:number;
     }   
 };
+interface DetailedProfileResponse {
+    /** 
+     * a class for detailed user 
+     */
+    user: IProfile;
+}
 
 interface ProfileWrapper{
     /**
@@ -43,4 +46,4 @@ interface ProfileResponse{
     search:  ProfilesData;
     
 }
-export type {IProfile, ProfilesData, ProfileWrapper, ProfileResponse }
+export type {IProfile, ProfilesData, ProfileWrapper, ProfileResponse, DetailedProfileResponse }
